@@ -84,7 +84,7 @@ Another problem is that the Sex and Embarked variables are categorical but in a 
 - Print the `Sex` and `Embarked` columns
 
 *** =hint
-- Use the standard bracket notation to select the appropriate rows, and dont foget the `==` operator.
+- Use the standard bracket notation to select the appropriate column, and don't foget the `==` operator.
 
 *** =pre_exercise_code
 
@@ -127,8 +127,8 @@ train["Embarked"][train["Embarked"] == "C"] = 1
 train["Embarked"][train["Embarked"] == "Q"] = 2
 
 #Print the Sex and Embarked columns
-print(train.Sex)
-print(train.Embarked)
+print(train["Sex"])
+print(train["Embarked"])
 ```
 *** =sct
 
