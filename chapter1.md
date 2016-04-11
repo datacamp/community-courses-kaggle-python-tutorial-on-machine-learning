@@ -136,7 +136,15 @@ test_function("pandas.read_csv", 2,
               not_called_msg = msg,
               incorrect_msg = msg)
 
-
+msg = "Don't forget to print the first few rows of test and train with the .head() method"
+test_function("print",1, 
+              not_called_msg = msg,
+              incorrect_msg = msg,
+              args=None)
+test_function("print",1, 
+              not_called_msg = msg,
+              incorrect_msg = msg,
+              args=None)
 success_msg("Well done! Now that your data is loaded in, let's see if you can understand it.")
 ```
 
