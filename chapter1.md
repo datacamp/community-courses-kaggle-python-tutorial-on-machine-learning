@@ -136,7 +136,7 @@ test_function("pandas.read_csv", 2,
               not_called_msg = msg,
               incorrect_msg = msg)
 
-msg = "Don't forget to print the first few rows of test and train with the .head() method"
+msg = "Don't forget to print the first few rows of `test` and `train` with the `.head()` method"
 test_function("print",1, 
               not_called_msg = msg,
               incorrect_msg = msg,
@@ -151,7 +151,7 @@ success_msg("Well done! Now that your data is loaded in, let's see if you can un
 --- type:MultipleChoiceExercise lang:python xp:50 skills:2
 ## Understanding your data
 
-Before starting with the actual analysis, it's important to understand the structure of your data. Both `test` and `train` are DataFrame objects, the way pandas represent datasets. You can easily explore a data using the `.describe()` method. `.describe()` summarizes the columns/features of the DataFrame, including the count of observations, mean, max and so on. Another useful trick is to look at the dimensions of the DataFrame. This is done by requesting the `.shape` attribute of your DataFrame object. (ex. `your_data.shape`)
+Before starting with the actual analysis, it's important to understand the structure of your data. Both `test` and `train` are DataFrame objects, the way pandas represent datasets. You can easily explore a DataFrame using the `.describe()` method. `.describe()` summarizes the columns/features of the DataFrame, including the count of observations, mean, max and so on. Another useful trick is to look at the dimensions of the DataFrame. This is done by requesting the `.shape` attribute of your DataFrame object. (ex. `your_data.shape`)
 
 The training and test set are already available in the workspace, as `train` and `test`. Apply `.describe()` method and print the `.shape` attribute of the training set. Which of the following statements is correct?
 
@@ -386,7 +386,7 @@ test_function("print", 2,
               not_called_msg = msg,
               incorrect_msg = msg)
 
-msg = "Compute the survival prportions for those OVER 18!"
+msg = "Compute the survival prportions for those OVER 18."
 test_function("print", 3,
               not_called_msg = msg,
               incorrect_msg = msg)
