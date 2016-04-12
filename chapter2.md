@@ -309,7 +309,7 @@ msg2 = msg1
 msg4 = msg1
 test_mc(correct = 3, msgs = [msg1, msg2, msg3, msg4])
 
-success_msg("Looks like Passenger Fare has most significance in determining survival based on your model. Now let's move on to making your first submission to Kagle!")
+success_msg("Looks like Passenger Fare has most significance in determining survival based on your model. Now let's move on to making your first submission to Kaggle!")
 
 ```
 
@@ -321,13 +321,12 @@ To send a submission to Kaggle you need to predict the survival rates for the ob
 
 First, you make use of the `.predict()` method. You provide it the model (`my_tree_one`), the values of features from the dataset for which predictions need to be made (`test`). To extract the features we will need to create a numpy array in the same way as we did when training the model. However, we need to take care of a small but important problem first. There is a missing value in the Fare feature that needs to be imputed.
 
-Next, you need to make sure your output is in line with the submission requirements of Kaggle: a csv file with exactly 418 entries and two columns: `PassengerId` and `Survived`. So you need to make a new data frame using `DataFrame()`, and create a csv file using `to_csv()` method from Pandas.
+Next, you need to make sure your output is in line with the submission requirements of Kaggle: a csv file with exactly 418 entries and two columns: `PassengerId` and `Survived`. Then use the code provided to make a new data frame using `DataFrame()`, and create a csv file using `to_csv()` method from Pandas. 
 
 *** =instructions
 - Impute the missing value for Fare in row 153 with the median of the column.
 - Make a prediction on the test set using the `.predict()` method and `my_tree_one`. Assign the result to `my_prediction`.
 - Create a data frame `my_solution` containing the solution and the passenger ids from the test set. Make sure the solution is in line with the standards set forth by Kaggle by naming the column appropriately.
-- Turn your solution into a csv file with the name `my_solution.csv`, ready for submission. Do not forget to set the `index_label` argument to `["PassengerId"]` to make sure you comply with the Kaggle submission format.
 
 *** =hint
 
