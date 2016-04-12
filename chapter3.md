@@ -289,6 +289,6 @@ msg3 = msg1
 msg4 = msg1
 test_mc(correct = 2, msgs = [msg1, msg2, msg3, msg4])
 
-success_msg("Congrats on compleating the course! Now that you created your first random forest and used it for prediction take a look at how well it does in the Kaggle competition. [Download your csv file](https://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/my_solution_forest.csv). Having learned about decision trees and random forests, you can begin participating in some other Kaggle competitons as well. Good luck and have fun!")
+success_msg("Congrats on compleating the course! Now that you created your first random forest and used it for prediction take a look at how well it does in the Kaggle competition. [Download your csv file](https://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/my_solution_forest.csv). Having learned about decision trees and random forests, you can begin participating in some other Kaggle competitions as well. Good luck and have fun!")
 
 ```
