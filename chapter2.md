@@ -84,7 +84,7 @@ Another problem is that the Sex and Embarked variables are categorical but in a 
 - Print the `Sex` and `Embarked` columns
 
 *** =hint
-- Use the standard bracket notation to select the appropriate column, and don't foget the `==` operator.
+- Use the standard bracket notation to select the appropriate rows and columns, and don't foget the `==` operator.
 
 *** =pre_exercise_code
 
@@ -175,8 +175,10 @@ One way to quickly see the result of your decision tree is to see the importance
 Ok, time for you to build your first decision tree in Python! The train and testing data from chapter 1 are available in your workspace.
 
 *** =instructions
-- Build a decision tree `my_tree_one` to predict survival based on the variables Passenger Class, Sex, Age, and Passenger Fare.
-- Look at the importance of features in your tree and compute the score.
+- Build the `target` and `features` numpy arrays. The target will be based on the Survived column in `train`. The features
+array will be based on the variables Passenger Class, Sex, Age, and Passenger Fare
+- Build a decision tree `my_tree_one` to predict survival using `features` and `target`
+- Look at the importance of features in your tree and compute the score
 
 *** =hint
 - To build a tree use the `tree.DecisionTreeClassifier()` syntax.
@@ -201,8 +203,8 @@ train["Sex"][train["Sex"] == "female"] = 1
 
 *** =sample_code
 ```{python}
-#Print the train data to see the available features
-
+#Print the the train data to see the available features
+print(train)
 
 
 #Create the target and features numpy arrays: target, features_one
@@ -227,7 +229,7 @@ print(train)
 
 target = train["Survived"].values
 features_one = train[["Pclass", "Sex", "Age", "Fare"]].values
-
+`
 #Fit your first decision tree: my_tree_one
 
 my_tree_one = tree.DecisionTreeClassifier()
@@ -325,7 +327,6 @@ Next, you need to make sure your output is in line with the submission requireme
 - Impute the missing value for Fare in row 153 with the median of the column.
 - Make a prediction on the test set using the `.predict()` method and `my_tree_one`. Assign the result to `my_prediction`.
 - Create a data frame `my_solution` containing the solution and the passenger ids from the test set. Make sure the solution is in line with the standards set forth by Kaggle by naming the column appropriately.
-- Check the data frame has 418 entries using `.shape` attribute.
 - Turn your solution into a csv file with the name `my_solution.csv`, ready for submission. Do not forget to set the `index_label` argument to `["PassengerId"]` to make sure you comply with the Kaggle submission format.
 
 *** =hint
