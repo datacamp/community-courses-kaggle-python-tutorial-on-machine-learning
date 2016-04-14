@@ -136,12 +136,11 @@ test_function("pandas.read_csv", 2,
               not_called_msg = msg,
               incorrect_msg = msg)
 
-msg1 = "Don't forget to print the first few rows of the `train` with the `.head()` method"
-msg2 = "Don't forget to print the first few rows of the `test` with the `.head()` method"
-#test_function("print", 1, not_called_msg = msg1, incorrect_msg = msg1)
+msg = "Don't forget to print the first few rows of the `train` with the `.head()` method"
+test_function("print", not_called_msg = msg, incorrect_msg = msg)
 
-#test_function("print", 2, not_called_msg = msg2, incorrect_msg = msg2)
-test_output_contains("train.head()", no_output_msg = msg1)
+#msg = "Don't forget to print the first few rows of the `test` with the `.head()` method"
+#test_function("print", 2, not_called_msg = msg, incorrect_msg = msg)
 
 success_msg("Well done! Now that your data is loaded in, let's see if you can understand it.")
 ```
