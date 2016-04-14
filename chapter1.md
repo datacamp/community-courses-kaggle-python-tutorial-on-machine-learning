@@ -112,8 +112,8 @@ test_url = "http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/test.csv"
 test = pd.read_csv(test_url)
 
 #Print the `head` of the train and test dataframes
-print(train.head().values)
-print(test.head().values)
+print(train.head())
+print(test.head())
 ```
 
 *** =sct
