@@ -75,7 +75,7 @@ Let's start with loading in the training and testing set into your Python enviro
 *** =instructions
 - First, import the Pandas library as pd.
 - Load the test data similarly to how the train data is loaded.
-- Print the first couple rows of the loaded dataframes using the `.head()` method.
+- Inspect the first couple rows of the loaded dataframes using the `.head()` method with the code provided.
 
 *** =hint
 - You can load in the training set with `train = pd.read_csv(train_url)`
@@ -97,7 +97,8 @@ train = pd.read_csv(train_url)
 test_url = "http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/test.csv"
 
 #Print the `head` of the train and test dataframes
-
+print(train.head())
+print(test.head())
 ```
 *** =solution
 ```{python}
@@ -136,11 +137,11 @@ test_function("pandas.read_csv", 2,
               not_called_msg = msg,
               incorrect_msg = msg)
 
-msg = "Don't forget to print the first few rows of `train` with the `.head()` method"
-test_function("print", 1, not_called_msg = msg, incorrect_msg = msg)
+#msg = "Don't forget to print the first few rows of `train` with the `.head()` method"
+#test_function("print", 1, not_called_msg = msg, incorrect_msg = msg)
 
-msg = "Don't forget to print the first few rows of `test` with the `.head()` method"
-test_function("print", 2, not_called_msg = msg, incorrect_msg = msg)
+#msg = "Don't forget to print the first few rows of `test` with the `.head()` method"
+#test_function("print", 2, not_called_msg = msg, incorrect_msg = msg)
 
 success_msg("Well done! Now that your data is loaded in, let's see if you can understand it.")
 ```
