@@ -136,8 +136,8 @@ test_function("pandas.read_csv", 2,
               not_called_msg = msg,
               incorrect_msg = msg)
 
-msg = "Don't forget to print the first few rows of the `train` with the `.head()` method"
-test_function("print", not_called_msg = msg, incorrect_msg = msg)
+#msg = "Don't forget to print the first few rows of the `train` with the `.head()` method"
+#test_function("print", not_called_msg = msg, incorrect_msg = msg)
 
 #msg = "Don't forget to print the first few rows of the `test` with the `.head()` method"
 #test_function("print", 2, not_called_msg = msg, incorrect_msg = msg)
