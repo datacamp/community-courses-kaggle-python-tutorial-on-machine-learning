@@ -112,8 +112,8 @@ test_url = "http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/test.csv"
 test = pd.read_csv(test_url)
 
 #Print the `head` of the train and test dataframes
-print(train)
-print(test)
+print(train.head().values)
+print(test.head().values)
 ```
 
 *** =sct
@@ -136,10 +136,10 @@ test_function("pandas.read_csv", 2,
               not_called_msg = msg,
               incorrect_msg = msg)
 
-msg = "Don't forget to print the first few rows of the `train` with the `.head()` method"
-test_function("print", not_called_msg = msg, incorrect_msg = msg)
+msg = "Don't forget to print the first few rows of `train` with the `.head()` method"
+test_function("print", 1, not_called_msg = msg, incorrect_msg = msg)
 
-msg = "Don't forget to print the first few rows of the `test` with the `.head()` method"
+msg = "Don't forget to print the first few rows of `test` with the `.head()` method"
 test_function("print", 2, not_called_msg = msg, incorrect_msg = msg)
 
 success_msg("Well done! Now that your data is loaded in, let's see if you can understand it.")
