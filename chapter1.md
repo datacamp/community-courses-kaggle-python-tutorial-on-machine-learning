@@ -141,7 +141,7 @@ test_function("print",1,
               not_called_msg = msg,
               incorrect_msg = msg,
               args=None)
-test_function("print",1, 
+test_function("print",2, 
               not_called_msg = msg,
               incorrect_msg = msg,
               args=None)
