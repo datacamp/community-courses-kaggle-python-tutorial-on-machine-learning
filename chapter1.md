@@ -307,7 +307,7 @@ success_msg("Well done! It looks like it makes sense to predict that all females
 --- type:NormalExercise lang:python xp:100 skills:2 key:b8f71cf4de
 ## Does age play a role?
 
-Another variable that could influence survival is age; since it's probable that children were saved first. You can test this by creating a new column with a categorical variable `Child`. `Child` will take the value 1 in cases where age is <18, and a value of 0 in cases where age is >=18. 
+Another variable that could influence survival is age; since it's probable that children were saved first. You can test this by creating a new column with a categorical variable `Child`. `Child` will take the value 1 in cases where age is less than 18, and a value of 0 in cases where age is greater than or equal to 18. 
 
 To add this new variable you need to do two things (i) create a new column, and (ii) provide the values for each observation (i.e., row) based on the age of the passenger.
 
@@ -391,17 +391,17 @@ print(train["Survived"][train["Child"] == 0].value_counts(normalize = True))
 
 *** =sct
 ```{python}
-msg = "Don't forget to set `normalize = True` when using `.value_counts()`."
-test_function("print", 2,
+msg = "Remember to print the new column `Child`. It should be equal to 1 when the passenger's age is under 18 and 0 if the passenger's age is 18 or greater."
+test_function("print", 1,
               not_called_msg = msg,
               incorrect_msg = msg)
 
-msg = "Compute the survival proportions for those OVER 18."
+msg = "Compute the survival proportions for those OVER 18. Refer to the code provided for passengers under 18."
 test_function("print", 3,
               not_called_msg = msg,
               incorrect_msg = msg)
 
-success_msg("Well done! It looks like it makes sense to predict that all females will survive, and all men will die.")
+success_msg("Well done! As you can see from the survival proportions, age does certainly seem to play a role.")
 ```
 
 --- type:NormalExercise lang:python xp:100 skills:2 key:f02305d182
