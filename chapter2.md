@@ -372,7 +372,7 @@ test_features = test[[___, ___, ___, ___]].values
 my_prediction = my_tree_one.predict(test_features)
 
 # Create a data frame with two columns: PassengerId & Survived. Survived contains your predictions
-PassengerId =np.array(test['PassengerId']).astype(int)
+PassengerId =np.array(test["PassengerId"]).astype(int)
 my_solution = pd.DataFrame(my_prediction, PassengerId, columns = ["Survived"])
 print(my_solution)
 
@@ -397,7 +397,7 @@ my_prediction = my_tree_one.predict(test_features)
 print(my_prediction)
 
 # Create a data frame with two columns: PassengerId & Survived. Survived contains your predictions
-PassengerId =np.array(test['PassengerId']).astype(int)
+PassengerId =np.array(test["PassengerId"]).astype(int)
 my_solution = pd.DataFrame(my_prediction, PassengerId, columns = ["Survived"])
 print(my_solution)
 
@@ -516,15 +516,18 @@ Data Science is an art that benefits from a human element. Enter feature enginee
 
 While feature engineering is a discipline in itself, too broad to be covered here in detail, you will have a look at a simple example by creating your own new predictive attribute: `family_size`.  
 
-A valid assumption is that larger families need more time to get together on a sinking ship, and hence have less chance of surviving. Family size is determined by the variables `SibSp` and `Parch`, which indicate the number of family members a certain passenger is traveling with. So when doing feature engineering, you add a new variable `family_size`, which is the sum of `SibSp` and `Parch` plus one (the observation itself), to the test and train set.
+A valid assumption is that larger families need more time to get together on a sinking ship, and hence have lower probability of surviving. Family size is determined by the variables `SibSp` and `Parch`, which indicate the number of family members a certain passenger is traveling with. So when doing feature engineering, you add a new variable `family_size`, which is the sum of `SibSp` and `Parch` plus one (the observation itself), to the test and train set.
 
 *** =instructions
 - Create a new train set `train_two` that differs from `train` only by having an extra column with your feature engineered variable `family_size`.
-- Create a new decision tree. Add your feature engineered variable `family_size` in addition to `Pclass`, `Sex`, `Age`, `Fare`, `SibSp` and `Parch`. Save your new model as `my_tree_three`. 
+-  Add your feature engineered variable `family_size` in addition to `Pclass`, `Sex`, `Age`, `Fare`, `SibSp` and `Parch` to `features_three`.
+- Create a new decision tree as `my_tree_three` and fit the decision tree with your new feature set `features_three`. Then check out the score of the decision tree.
 
 *** =hint
 
-Don't forget to add `1` when adding the column with the new feature.
+- Don't forget to add `1` when adding the column with the new feature 
+- Add your newly defined feature to be included in `features_three`
+- Remember how you fit the decision tree model in the last exercise
 
 *** =pre_exercise_code
 ```{python}
@@ -549,27 +552,33 @@ train["Embarked"][train["Embarked"] == "Q"] = 2
 
 *** =sample_code
 ```{python}
-# create a new train set with the new variable
-train_two = train
-train_two['family_size'] = 
+# Create train_two with the newly defined feature
+train_two = train.copy()
+train_two["family_size"] = 
 
-# Create a new decision tree my_tree_three
-features_three = 
+# Create a new feature set and add the new feature
+features_three = train_two[["Pclass", "Sex", "Age", "Fare", "SibSp", "Parch", ___]].values
+
+# Define the tree classifier, then fit the model
 my_tree_three = tree.DecisionTreeClassifier()
-my_tree_three =
+my_tree_three = 
+
+# Print the score of this decision tree
+print(my_tree_three.score(features_three, target))
 
 ```
 
 *** =solution
 
 ```{python}
-# create a new train set with the new variable
-train_two = train
-train_two['family_size'] = train.SibSp + train.Parch + 1
+# Create train_two with the newly defined feature
+train_two = train.copy()
+train_two["family_size"] = train["SibSp"] + train["Parch"] + 1
 
-# Create a new decision tree my_tree_three
-features_three = train[["Pclass", "Sex", "Age", "Fare", "SibSp", "Parch", "family_size"]].values
+# Create a new feature set and add the new feature
+features_three = train_two[["Pclass", "Sex", "Age", "Fare", "SibSp", "Parch", "family_size"]].values
 
+# Define the tree classifier, then fit the model
 my_tree_three = tree.DecisionTreeClassifier()
 my_tree_three = my_tree_three.fit(features_three, target)
 
@@ -583,9 +592,9 @@ print(my_tree_three.score(features_three, target))
 ```{python}
 
 test_object("features_three",
-            incorrect_msg = "It looks like you selected wrong features, or violated the order. Take a look at the instruction and make sure you are using the test dataset.")
+            incorrect_msg = "Make sure to add `"family_size"` to the new feature set. Take a look at the instruction and make sure you are using the train_two dataset.")
 test_function("print", args=None,
-            incorrect_msg = "It looks like score wasn't computed quite right. Make sure that the you are using the `features_three` and `target` as your arguments.")
+            incorrect_msg = "It looks like score wasn't computed quite right. Make sure that the you are using the `features_three` and `target` to fit your decision tree model.")
 
 success_msg("Great! Notice that this time the newly created variable is included in the model. [Download your csv file](https://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/my_solution_three.csv), and submit the created csv to Kaggle to see the result of the updated model.")
 ```
