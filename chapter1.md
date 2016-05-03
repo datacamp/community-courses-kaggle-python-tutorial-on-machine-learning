@@ -335,13 +335,10 @@ A new column called `Child` in the `train` data frame has been created for you t
 - Compare the normalized survival rates for those who are <18 and those who are older. Use code similar to what you had in the previous exercise.
 
 *** =hint
-Suppose you wanted to add a new column `clothes` to the `test` set, then give all males the value `"pants"` and the others `"skirt"`:
-```
-test["clothes"] = "skirt"
+Suppose you wanted to add a new column `clothes` to the `test` set, then give all males the value `"pants"` and the others `"skirt"`
+`test["clothes"] = "skirt"`
 
-test["clothes"][test["Sex"] == "male"] = "pants"
-```
-
+`test["clothes"][test["Sex"] == "male"] = "pants"`
 
 *** =pre_exercise_code
 
