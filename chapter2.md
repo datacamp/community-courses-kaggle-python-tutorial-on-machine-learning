@@ -5,7 +5,7 @@ will be introduced to a fundamental concept in machine learning: decision trees.
 attachments :
 
 
---- type:NormalExercise lang:python xp:100 skills:2
+--- type:NormalExercise lang:python xp:100 skills:2 key:98be5c3225
 ## Intro to decision trees
 
 In the previous chapter, you did all the slicing and dicing yourself to find subsets that have a higher chance of surviving. A decision tree automates this process for you and outputs a classification model or classifier.
@@ -65,7 +65,7 @@ success_msg("OK, your package is loaded now. Time for the real deal.")
 ```
 
 
---- type:NormalExercise lang:python xp:100 skills:2
+--- type:NormalExercise lang:python xp:100 skills:2 key:98092838ce
 ## Cleaning and Formatting your Data
 
 Before you can begin constructing your trees you need to get your hands dirty and clean the data so that you can use all the features available to you. In the first chapter, we saw that the Age variable had some missing value. Missingness is a whole subject with and in itself, but we will use a simple imputation technique where we substitute each missing value with the median of the all present values.
@@ -149,7 +149,7 @@ test_function("print", 2,
 success_msg("Geat! Now that the data is cleaned up a bit you are ready to begin building your first decision tree.")
 ```
 
---- type:NormalExercise lang:python xp:100 skills:2
+--- type:NormalExercise lang:python xp:100 skills:2 key:2b663996b1
 ## Creating your first decision tree
 
 You will use the `scikit-learn` and `numpy` libraries to build your first decision tree. `scikit-learn` can be used to create `tree` objects from the `DecisionTreeClassifier` class. The methods that we will use take `numpy` arrays as inputs and therefore we will need to create those from the `DataFrame` that we already have. We will need the following to build a decision tree
@@ -264,7 +264,7 @@ test_function("print",3,
 success_msg("Well done! Time to investigate your decision tree a bit more.")
 ```
 
---- type:MultipleChoiceExercise lang:python xp:50 skills:2
+--- type:MultipleChoiceExercise lang:python xp:50 skills:2 key:87b643ee96
 ## Interpreting your decision tree
 
 The `feature_importances_` attribute make it simple to interpret the significance of the predictors you include. Based on your decision tree, what variable plays the most important role in determining whether or not a passenger survived? Your model (`my_tree_one`) is available in the console.
@@ -314,7 +314,7 @@ success_msg("Looks like Passenger Fare has most significance in determining surv
 ```
 
 
---- type:NormalExercise lang:python xp:100 skills:2
+--- type:NormalExercise lang:python xp:100 skills:2 key:4a70446ddd
 ## Predict and submit to Kaggle
 
 To send a submission to Kaggle you need to predict the survival rates for the observations in the test set. In the last exercise of the previous chapter, we created simple predictions based on a single subset. Luckily, with our decision tree, we can make use of some simple functions to "generate" our answer without having to manually perform subsetting.
@@ -421,7 +421,7 @@ success_msg("Great! You just created your first decision tree. [Download your cs
 
 ```
 
---- type:NormalExercise lang:python xp:100 skills:2
+--- type:NormalExercise lang:python xp:100 skills:2 key:fa5a95aab5
 ## Overfitting and how to control it.
 
 When you created your first decision tree the default arguments for  `max_depth` and `min_samples_split` were set to `None`. This means that no limit on the depth of your tree was set.  That's a good thing right? Not so fast. We are likely overfitting. This means that while your model describes the training data extremely well, it doesn't generalize to new data, which is frankly the point of prediction. Just look at the Kaggle submission results for the simple model based on Gender and the complex decision tree. Which one does better?
@@ -509,7 +509,7 @@ success_msg("Great! You just created your second and possibly improved decision 
 
 ```
 
---- type:NormalExercise lang:python xp:100 skills:2
+--- type:NormalExercise lang:python xp:100 skills:2 key:55678ebefb
 ## Feature-engineering for our Titanic data set
 
 Data Science is an art that benefits from a human element. Enter feature engineering: creatively engineering your own features by combining the different existing variables. 
