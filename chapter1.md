@@ -392,7 +392,7 @@ print(train["Survived"][train["Child"] == 0].value_counts(normalize = True))
 *** =sct
 ```{python}
 msg = "Remember to print the new column `Child`. It should be equal to 1 when the passenger's age is under 18 and 0 if the passenger's age is 18 or greater."
-test_function("print", 1,
+test_function("print", 2,
               not_called_msg = msg,
               incorrect_msg = msg)
 
