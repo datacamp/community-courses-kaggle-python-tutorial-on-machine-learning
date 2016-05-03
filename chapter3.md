@@ -19,16 +19,15 @@ The latest training and testing data are preloaded for you.
 
 
 *** =instructions
-- Import `RandomForestClassifier` from `from sklearn.ensemble`.
-- Build an array with features we used for the most recent tree and call it features_forest.
 - Build the random forest with `n_estimators` set to `100`.
-- Build an array with the features from the test set to make predictions. Use this array and the model to compute the predictions.
+- Fit your random forest model with inputs `features_forest` and `target`.
+- Compute the classifier predictions on the selected test set features.
 
 
 *** =hint
 
 - When computing the predictions you can use the `.predict()` mothod just like you did with decision trees!
-- To Compute the score use the `.score()` method with correct argumnets. Consult your previous work from CH2 if your don't recall the syntax.
+- To compute the score use the `.score()` method with correct argumnets. Consult your previous work from CH2 if your don't recall the syntax.
 
 *** =pre_exercise_code
 ```{python}
@@ -77,44 +76,44 @@ test.Fare[152] = test.Fare.median()
 
 *** =sample_code
 ```{python}
-#Import the `RandomForestClassifier`
-from sklearn.ensemble import ___
 
-#We want the Pclass, Age, Sex, Fare,SibSp, Parch, and Embarked variables
-features_forest = 
+# Import the `RandomForestClassifier`
+from sklearn.ensemble import RandomForestClassifier
 
-#Building the Forest: my_forest
-n_estimators = 
-forest = RandomForestClassifier(max_depth = 10, min_samples_split=2, ___, random_state = 1)
-my_forest = forest.fit(features_forest, target)
+# We want the Pclass, Age, Sex, Fare,SibSp, Parch, and Embarked variables
+features_forest = train[["Pclass", "Age", "Sex", "Fare", "SibSp", "Parch", "Embarked"]].values
 
-#Print the score of the random forest
+# Building and fitting my_forest
+forest = RandomForestClassifier(max_depth = 10, min_samples_split=2, n_estimators = ___, random_state = 1)
+my_forest = forest.fit(___, ___)
 
+# Print the score of the fitted random forest
+print(my_forest.score(features_forest, target))
 
-#Compute predictions and print the length of the prediction vector:test_features, pred_forest
-test_features = 
-pred_forest = 
-print()
+# Compute predictions on our test set features then print the length of the prediction vector
+test_features = test[["Pclass", "Age", "Sex", "Fare", "SibSp", "Parch", "Embarked"]].values
+pred_forest = my_forest.predict(___)
+print(len(pred_forest))
+
 ```
 
 *** =solution
 ```{python}
 
-#Import the `RandomForestClassifier`
+# Import the `RandomForestClassifier`
 from sklearn.ensemble import RandomForestClassifier
 
-#We want the Pclass, Age, Sex, Fare,SibSp, Parch, and Embarked variables
+# We want the Pclass, Age, Sex, Fare,SibSp, Parch, and Embarked variables
 features_forest = train[["Pclass", "Age", "Sex", "Fare", "SibSp", "Parch", "Embarked"]].values
 
-#Building the Forest: my_forest
-n_estimators = 100
+# Building and fitting my_forest
 forest = RandomForestClassifier(max_depth = 10, min_samples_split=2, n_estimators = n_estimators, random_state = 1)
 my_forest = forest.fit(features_forest, target)
 
-#Print the score of the random forest
+# Print the score of the fitted random forest
 print(my_forest.score(features_forest, target))
 
-#Compute predictions and print the length of the prediction vector:test_features, pred_forest
+# Compute predictions on our test set features then print the length of the prediction vector
 test_features = test[["Pclass", "Age", "Sex", "Fare", "SibSp", "Parch", "Embarked"]].values
 pred_forest = my_forest.predict(test_features)
 print(len(pred_forest))
@@ -126,16 +125,14 @@ print(len(pred_forest))
 ```{python}
 test_function("RandomForestClassifier", args=None,
               incorrect_msg = "Don't forget to import `RandomForestClassifier` and use it to initiate your random forest.")
-test_object("n_estimators",
-              incorrect_msg = "We are looking to generate 100 estimators. Make sure to set this argument correctly!")
 test_object("features_forest",
               incorrect_msg = "Make sure to select the specified features in the right order. These should come from the train dataset!")
 test_function("print",1, args=None,
-              incorrect_msg = "It looks like the score wasn't computet exactly right. Make sure to use `features_forest` and `target` as arguments")
+              incorrect_msg = "It looks like the score wasn't computed exactly right. Make sure to use `features_forest` and `target` as arguments")
 test_object("test_features",
             incorrect_msg = "Make sure to select the specified features in the right order. These should come from the test dataset!")
 test_function("print",2, args=None,
-            incorrect_msg = "It seems that there is an incorrect number of predictions is pred_forest. Make sure to use `test_features` when computing the predictions.")
+            incorrect_msg = "It seems that there is an incorrect number of predictions in pred_forest. Make sure to use `test_features` when computing the predictions.")
 ```
 
 --- type:NormalExercise lang:python xp:100 skills:2 key:146563d1e8
@@ -289,6 +286,6 @@ msg3 = msg1
 msg4 = msg1
 test_mc(correct = 2, msgs = [msg1, msg2, msg3, msg4])
 
-success_msg("Congrats on compleating the course! Now that you created your first random forest and used it for prediction take a look at how well it does in the Kaggle competition. [Download your csv file](https://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/my_solution_forest.csv). Having learned about decision trees and random forests, you can begin participating in some other Kaggle competitions as well. Good luck and have fun!")
+success_msg("Congrats on completing the course! Now that you created your first random forest and used it for prediction take a look at how well it does in the Kaggle competition. [Download your csv file](https://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/my_solution_forest.csv). Having learned about decision trees and random forests, you can begin participating in some other Kaggle competitions as well. Good luck and have fun!")
 
 ```
