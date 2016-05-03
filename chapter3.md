@@ -4,7 +4,7 @@ description : "What techniques can you use to improve your predictions even more
 attachments :
 
 
---- type:NormalExercise lang:python xp:100 skills:2
+--- type:NormalExercise lang:python xp:100 skills:2 key:05b740fff1
 ## A Random Forest analysis in Python
 A detailed study of Random Forests would take this tutorial a bit too far. However, since it's an often used machine learning technique, gaining a general understanding in Python won't hurt.
 
@@ -138,7 +138,7 @@ test_function("print",2, args=None,
             incorrect_msg = "It seems that there is an incorrect number of predictions is pred_forest. Make sure to use `test_features` when computing the predictions.")
 ```
 
---- type:NormalExercise lang:python xp:100 skills:2
+--- type:NormalExercise lang:python xp:100 skills:2 key:146563d1e8
 ## Interpreting and Comparing
 
 Remember how we looked at `.feature_importances_` attribute for the decision trees? Well, you can request the same attribute from your random forest as well and interpret the relevance of the included variables.
@@ -228,7 +228,7 @@ test_function("print", 4, args=None,
 
 ```
 
---- type:MultipleChoiceExercise lang:python xp:50 skills:2
+--- type:MultipleChoiceExercise lang:python xp:50 skills:2 key:db79e9fe21
 ## Conclude and Submit
 
 Based on your finding in the previous exercise determine which feature was of most importance, and for which model.
