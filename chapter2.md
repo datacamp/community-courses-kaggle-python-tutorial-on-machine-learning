@@ -181,8 +181,8 @@ array will be based on the variables Passenger, Class, Sex, Age, and Passenger F
 - Look at the importance of features in your tree and compute the score
 
 *** =hint
-- To build a tree use the `tree.DecisionTreeClassifier()` syntax.
-- You can look at the importance of features using the `.feature_importances_` attribute.
+- Remember what the target column is in your data and assign it to `target`.
+- You can fit and compute the score for your decision tree by passing in the features and target objects you created.
 
 
 
