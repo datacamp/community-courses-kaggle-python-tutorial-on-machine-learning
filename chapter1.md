@@ -325,7 +325,7 @@ To set the values based on the age of the passenger, you make use of a boolean t
 train["new_var"][train["Fare"] > 10] = 1
 ```
 
-would give a value of 1 to the variable `new_var` for the subset of passengers whose fares greater than 10. Remember that `new_var` has a value of `0` for all other values (including missing values).
+would give a value of `1` to the variable `new_var` for the subset of passengers whose fares greater than 10. Remember that `new_var` has a value of `0` for all other values (including missing values).
 
 A new column called `Child` in the `train` data frame has been created for you that takes the value `NaN` for all observations.
 
