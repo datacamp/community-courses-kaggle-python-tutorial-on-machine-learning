@@ -592,7 +592,7 @@ print(my_tree_three.score(features_three, target))
 ```{python}
 
 test_object("features_three",
-            incorrect_msg = "Make sure to add `"family_size"` to the new feature set. Take a look at the instruction and make sure you are using the train_two dataset.")
+            incorrect_msg = "Make sure to add `family_size` to the new feature set. Take a look at the instruction and make sure you are using the train_two dataset.")
 test_function("print", args=None,
             incorrect_msg = "It looks like score wasn't computed quite right. Make sure that the you are using the `features_three` and `target` to fit your decision tree model.")
 
