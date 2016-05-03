@@ -3,7 +3,7 @@ title       : Getting Started with Python
 description : In this chapter we will go trough the essential steps that you will need to take before beginning to build predictive models.
 attachments :
 
---- type:NormalExercise lang:python xp:100 skills:2
+--- type:NormalExercise lang:python xp:100 skills:2 key:49f71e27bd
 
 ## How it works
 Welcome to our Kaggle Machine Learning Tutorial. In this tutorial, you will explore how to tackle Kaggle Titanic competition using Python and Machine Learning. In case you're new to Python, it's recommended that you first take our free [Introduction to Python for Data Science Tutorial](https://www.datacamp.com/courses/intro-to-python-for-data-science). Furthermore, while not required, familiarity with machine learning techniques is a plus so you can get the maximum out of this tutorial.
@@ -64,7 +64,7 @@ test_function("print",2,
 success_msg("Awesome! See how the console shows the result of the Python code you submitted? Now that you're familiar with the interface, let's get down to business!")
 ```
 
---- type:NormalExercise lang:python xp:100 skills:2
+--- type:NormalExercise lang:python xp:100 skills:2 key:18a0d06d73
 ## Get the Data with Pandas
 When the Titanic sank, 1502 of the 2224 passengers and crew were killed. One of the main reasons for this high level of casualties was the lack of lifeboats on this self-proclaimed "unsinkable" ship.
 
@@ -146,7 +146,7 @@ test_function("pandas.read_csv", 2,
 success_msg("Well done! Now that your data is loaded in, let's see if you can understand it.")
 ```
 
---- type:MultipleChoiceExercise lang:python xp:50 skills:2
+--- type:MultipleChoiceExercise lang:python xp:50 skills:2 key:7f5cb08579
 ## Understanding your data
 
 Before starting with the actual analysis, it's important to understand the structure of your data. Both `test` and `train` are DataFrame objects, the way pandas represent datasets. You can easily explore a DataFrame using the `.describe()` method. `.describe()` summarizes the columns/features of the DataFrame, including the count of observations, mean, max and so on. Another useful trick is to look at the dimensions of the DataFrame. This is done by requesting the `.shape` attribute of your DataFrame object. (ex. `your_data.shape`)
@@ -183,7 +183,7 @@ success_msg("Well done! Now move on and explore some of the features in more det
 
 ```
 
---- type:NormalExercise lang:python xp:100 skills:1
+--- type:NormalExercise lang:python xp:100 skills:1 key:1eeaaeb294
 ## Rose vs Jack, or Female vs Male
 
 How many people in your training set survived the disaster with the Titanic? To see this, you can use the `value_counts()` method in combination with standard bracket notation to select a single column of a DataFrame:
@@ -304,7 +304,7 @@ success_msg("Well done! It looks like it makes sense to predict that all females
 
 ```
 
---- type:NormalExercise lang:python xp:100 skills:2
+--- type:NormalExercise lang:python xp:100 skills:2 key:b8f71cf4de
 ## Does age play a role?
 
 Another variable that could influence survival is age; it's probable that children were saved first. You can test this by creating a new column with a categorical variable `child`. `child` will take the value 1 in cases where age is <18, and a value of 0 in cases where age is >=18. 
@@ -392,7 +392,7 @@ test_function("print", 3,
 success_msg("Well done! It looks like it makes sense to predict that all females will survive, and all men will die.")
 ```
 
---- type:NormalExercise lang:python xp:100 skills:2
+--- type:NormalExercise lang:python xp:100 skills:2 key:f02305d182
 ## First Prediction
 
 In one of the previous exercises you discovered that in your training set, females had over a 50% chance of surviving and males had less than a 50% chance of surviving. Hence, you could use this information for your first prediction: all females in the test set survive and all males in the test set die. 
