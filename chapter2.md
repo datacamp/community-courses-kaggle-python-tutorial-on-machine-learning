@@ -175,14 +175,14 @@ One way to quickly see the result of your decision tree is to see the importance
 Ok, time for you to build your first decision tree in Python! The train and testing data from chapter 1 are available in your workspace.
 
 *** =instructions
-- Build the `target` and `features` numpy arrays. The target will be based on the Survived column in `train`. The features
-array will be based on the variables Passenger Class, Sex, Age, and Passenger Fare
-- Build a decision tree `my_tree_one` to predict survival using `features` and `target`
+- Build the `target` and `features` numpy arrays. The target will be based on the `Survived` column in `train`. The features
+array will be based on the variables Passenger, Class, Sex, Age, and Passenger Fare
+- Build a decision tree `my_tree_one` to predict survival using `features_one` and `target`
 - Look at the importance of features in your tree and compute the score
 
 *** =hint
-- To build a tree use the `tree.DecisionTreeClassifier()` syntax.
-- You can look at the importance of features using the `.feature_importances_` attribute.
+- Remember what the target column is in your data and assign it to `target`.
+- You can fit and compute the score for your decision tree by passing in the features and target objects you created.
 
 
 
@@ -203,39 +203,37 @@ train["Sex"][train["Sex"] == "female"] = 1
 
 *** =sample_code
 ```{python}
-#Print the the train data to see the available features
+# Print the train data to see the available features
 print(train)
 
+# Create the target and features numpy arrays: target, features_one
+target = train[___].values
+features_one = train[["Pclass", "Sex", "Age", "Fare"]].values
 
-#Create the target and features numpy arrays: target, features_one
+# Fit your first decision tree: my_tree_one
+my_tree_one = tree.DecisionTreeClassifier()
+my_tree_one = my_tree_one.fit(___, ___)
 
-
-
-#Fit your first decision tree: my_tree_one
-
-
-
-#Look at the importance of the included features and print the score
-
+# Look at the importance and score of the included features
+print(my_tree_one.feature_importances_)
+print(my_tree_one.score(___, ___))
 ```
 
 *** =solution
 
 ```{python}
-#Print the train data to see the available features
+# Print the train data to see the available features
 print(train)
 
-#Create the target and features numpy arrays: target, features
-
+# Create the target and features numpy arrays: target, features_one
 target = train["Survived"].values
 features_one = train[["Pclass", "Sex", "Age", "Fare"]].values
 
-#Fit your first decision tree: my_tree_one
-
+# Fit your first decision tree: my_tree_one
 my_tree_one = tree.DecisionTreeClassifier()
 my_tree_one = my_tree_one.fit(features_one, target)
 
-#Look at the importance of the included features
+# Look at the importance and score of the included features
 print(my_tree_one.feature_importances_)
 print(my_tree_one.score(features_one, target))
 

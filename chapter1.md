@@ -307,38 +307,41 @@ success_msg("Well done! It looks like it makes sense to predict that all females
 --- type:NormalExercise lang:python xp:100 skills:2 key:b8f71cf4de
 ## Does age play a role?
 
-Another variable that could influence survival is age; it's probable that children were saved first. You can test this by creating a new column with a categorical variable `child`. `child` will take the value 1 in cases where age is <18, and a value of 0 in cases where age is >=18. 
+Another variable that could influence survival is age; since it's probable that children were saved first. You can test this by creating a new column with a categorical variable `Child`. `Child` will take the value 1 in cases where age is less than 18, and a value of 0 in cases where age is greater than or equal to 18. 
 
 To add this new variable you need to do two things (i) create a new column, and (ii) provide the values for each observation (i.e., row) based on the age of the passenger.
 
 Adding a new column with Pandas in Python is easy and can be done via the following syntax:
 
 ```
-your_data["new_var"] = 10
+your_data["new_var"] = 0
 ```
 
-This code would create a new column in the `train` DataFrame titled `new_var` with `10` for each observation.
+This code would create a new column in the `train` DataFrame titled `new_var` with `0` for each observation.
 
 To set the values based on the age of the passenger, you make use of a boolean test inside the square bracket operator. With the `[]`-operator you create a subset of rows and assign a value to a certain variable of that subset of observations. For example,
 
 ```
-train["new_var"][train["Survived"] == 1] = 0
+train["new_var"][train["Fare"] > 10] = 1
 ```
 
-would give a value of 0 to the variable `new_var` for the subset of passengers that survived the disaster.
+would give a value of `1` to the variable `new_var` for the subset of passengers whose fares greater than 10. Remember that `new_var` has a value of `0` for all other values (including missing values).
+
+A new column called `Child` in the `train` data frame has been created for you that takes the value `NaN` for all observations.
 
 *** =instructions
-
-- Create a new column `Child` in the `train` data frame that takes the value `NaN`, if the passenger's age is `NaN`, `1` when the passenger is < 18 years and the value `0` when the passenger is >= 18 years. To create `NaN` use `float('NaN')`.
+- Set the values of `Child` to `1` is the passenger's age is less than 18 years. 
+- Then assign the value `0` to observations where the passenger is greater than or equal to 18 years in the new `Child` column. 
 - Compare the normalized survival rates for those who are <18 and those who are older. Use code similar to what you had in the previous exercise.
 
 *** =hint
-Suppose you wanted to add a new column `clothes` to the `test` set and give all males the value `"pants"` and the others `"skirt"`:
+Suppose you wanted to add a new column `clothes` to the `test` set, then give all males the value `"pants"` and the others `"skirt"`:
+
 ```
 test["clothes"] = "skirt"
+
 test["clothes"][test["Sex"] == "male"] = "pants"
 ```
-
 
 *** =pre_exercise_code
 
@@ -351,45 +354,54 @@ test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/te
 *** =sample_code
 
 ```{python}
-# Create the column Child and indicate whether child or not a child. Print the new column.
+# Create the column Child and assign to 'NaN'
 train["Child"] = float('NaN')
 
-# Normalized Survival Rates for under 18
+# Assign 1 to passengers under 18, 0 to those 18 or older. Print the new column.
 
-# Normalized Survival Rates for over 18
+
+
+
+# Print normalized Survival Rates for passengers under 18
+print(train["Survived"][train["Child"] == 1].value_counts(normalize = True))
+
+# Print normalized Survival Rates for passengers 18 or older
+
 
 ```
 
 *** =solution
 
 ```{python}
-# Create the column Child, and indicate whether child or not a child. Print the new column.
+# Create the column Child and assign to 'NaN'
 train["Child"] = float('NaN')
-train.Child[train.Age < 18] = 1
-train.Child[train.Age >= 18] = 0
-print(train.Child)
 
-# Normalized Survival Rates for under 18
-print(train.Survived[train.Child == 1].value_counts(normalize = True))
+# Assign 1 to passengers under 18, 0 to those 18 or older. Print the new column.
+train["Child"][train["Age"] < 18] = 1
+train["Child"][train["Age"] >= 18] = 0
+print(train["Child"])
 
-# Normalized Survival Rates for over 18
-print(train.Survived[train.Child == 0].value_counts(normalize = True))
+# Print normalized Survival Rates for passengers under 18
+print(train["Survived"][train["Child"] == 1].value_counts(normalize = True))
+
+# Print normalized Survival Rates for passengers 18 or older
+print(train["Survived"][train["Child"] == 0].value_counts(normalize = True))
 
 ```
 
 *** =sct
 ```{python}
-msg = "Don't forget to set `normalize = True` when using `.value_counts()`."
+msg = "Remember to print the new column `Child`. It should be equal to 1 when the passenger's age is under 18 and 0 if the passenger's age is 18 or greater."
 test_function("print", 2,
               not_called_msg = msg,
               incorrect_msg = msg)
 
-msg = "Compute the survival prportions for those OVER 18."
+msg = "Compute the survival proportions for those OVER 18. Refer to the code provided for passengers under 18."
 test_function("print", 3,
               not_called_msg = msg,
               incorrect_msg = msg)
 
-success_msg("Well done! It looks like it makes sense to predict that all females will survive, and all men will die.")
+success_msg("Well done! As you can see from the survival proportions, age does certainly seem to play a role.")
 ```
 
 --- type:NormalExercise lang:python xp:100 skills:2 key:f02305d182
