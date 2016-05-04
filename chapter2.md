@@ -157,7 +157,7 @@ You will use the `scikit-learn` and `numpy` libraries to build your first decisi
 - `target`: A one-dimensional numpy array containing the target/response from the train data. (Survival in your case)
 - `features`: A multidimensional numpy array containing the features/predictors from the train data. (ex. Sex, Age)
 
-Take a look at the sample code below to see how this would look like:
+Take a look at the sample code below to see what this would look like:
 
 ```
 target = train["Survived"].values
@@ -170,12 +170,12 @@ my_tree = my_tree.fit(features, target)
 
 ```
 
-One way to quickly see the result of your decision tree is to see the importance of the features that are included. This is done by requesting the `.feature_importances_` attribute of your tree object. Another quick metric is the mean accuracy that you can compute using the `.score()` function with `features` and `target` as arguments.
+One way to quickly see the result of your decision tree is to see the importance of the features that are included. This is done by requesting the `.feature_importances_` attribute of your tree object. Another quick metric is the mean accuracy that you can compute using the `.score()` function with `features_one` and `target` as arguments.
 
 Ok, time for you to build your first decision tree in Python! The train and testing data from chapter 1 are available in your workspace.
 
 *** =instructions
-- Build the `target` and `features` numpy arrays. The target will be based on the `Survived` column in `train`. The features
+- Build the `target` and `features_one` numpy arrays. The target will be based on the `Survived` column in `train`. The features
 array will be based on the variables Passenger, Class, Sex, Age, and Passenger Fare
 - Build a decision tree `my_tree_one` to predict survival using `features_one` and `target`
 - Look at the importance of features in your tree and compute the score
