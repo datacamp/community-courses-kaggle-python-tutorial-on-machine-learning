@@ -420,7 +420,7 @@ success_msg("Great! You just created your first decision tree. [Download your cs
 ```
 
 --- type:NormalExercise lang:python xp:100 skills:2 key:fa5a95aab5
-## Overfitting and how to control it.
+## Overfitting and how to control it
 
 When you created your first decision tree the default arguments for  `max_depth` and `min_samples_split` were set to `None`. This means that no limit on the depth of your tree was set.  That's a good thing right? Not so fast. We are likely overfitting. This means that while your model describes the training data extremely well, it doesn't generalize to new data, which is frankly the point of prediction. Just look at the Kaggle submission results for the simple model based on Gender and the complex decision tree. Which one does better?
 
