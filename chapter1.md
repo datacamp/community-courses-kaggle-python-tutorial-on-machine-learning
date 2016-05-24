@@ -459,7 +459,7 @@ print(test_one.Survived)
 *** =sct
 
 ```{python}
-test_object("test_one", incorrect_msg = "This will most likely not call an error")
+test_object("test_one", do_eval = False, incorrect_msg = "This will most likely not call an error")
 #test_function("print",
 #              not_called_msg = "Make sure to define the column `Survived` inside `test_one`",
 #              incorrect_msg = "Make sure you are assigning 1 to female and 0 to male passengers")
