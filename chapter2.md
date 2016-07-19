@@ -38,19 +38,18 @@ test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/te
 
 *** =sample_code
 ```{python}
-#Import the Numpy library
+# Import the Numpy library
 
-#Import 'tree' from scikit-learn library
+# Import 'tree' from scikit-learn library
 from sklearn 
-
 ```
 
 *** =solution
 ```{python}
-#Import the Numpy library
+# Import the Numpy library
 import numpy as np
 
-#Import 'tree' from scikit-learn library
+# Import 'tree' from scikit-learn library
 from sklearn import tree
 ```
 
@@ -91,18 +90,17 @@ import numpy as np
 from sklearn import tree
 train = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/train.csv")
 test = pd.read_csv("http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/test.csv")
-
 ```
 
 *** =sample_code
 ```{python}
-#Convert the male and female groups to integer form
+# Convert the male and female groups to integer form
 train["Sex"][train["Sex"] == "male"] = 0
 
-#Impute the Embarked variable
+# Impute the Embarked variable
 train["Embarked"] = 
 
-#Convert the Embarked classes to integer form
+# Convert the Embarked classes to integer form
 train["Embarked"][train["Embarked"] == "S"] = 0
 
 #Print the Sex and Embarked columns
@@ -111,19 +109,19 @@ train["Embarked"][train["Embarked"] == "S"] = 0
 
 *** =solution
 ```{python}
-#Convert the male and female groups to integer form
+# Convert the male and female groups to integer form
 train["Sex"][train["Sex"] == "male"] = 0
 train["Sex"][train["Sex"] == "female"] = 1
 
-#Impute the Embarked variable
+# Impute the Embarked variable
 train["Embarked"] = train["Embarked"].fillna("S")
 
-#Convert the Embarked classes to integer form
+# Convert the Embarked classes to integer form
 train["Embarked"][train["Embarked"] == "S"] = 0
 train["Embarked"][train["Embarked"] == "C"] = 1
 train["Embarked"][train["Embarked"] == "Q"] = 2
 
-#Print the Sex and Embarked columns
+# Print the Sex and Embarked columns
 print(train["Sex"])
 print(train["Embarked"])
 ```
