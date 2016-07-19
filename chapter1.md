@@ -1,7 +1,6 @@
 ---
 title       : Getting Started with Python
 description : In this chapter we will go trough the essential steps that you will need to take before beginning to build predictive models.
-attachments :
 
 --- type:NormalExercise lang:python xp:100 skills:2 key:49f71e27bd
 
