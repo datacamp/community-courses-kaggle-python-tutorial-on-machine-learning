@@ -52,16 +52,13 @@ import numpy as np
 
 #Import 'tree' from scikit-learn library
 from sklearn import tree
-
 ```
 
 *** =sct
 
 ```{python}
-
 test_import("numpy", same_as = False)
 success_msg("OK, your package is loaded now. Time for the real deal.")
-
 ```
 
 

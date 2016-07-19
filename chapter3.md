@@ -123,7 +123,7 @@ print(len(pred_forest))
 *** =sct
 
 ```{python}
-test_function("RandomForestClassifier", args=None,
+test_function("sklearn.ensemble.RandomForestClassifier", args=None,
               incorrect_msg = "Don't forget to import `RandomForestClassifier` and use it to initiate your random forest.")
 test_object("features_forest",
               incorrect_msg = "Make sure to select the specified features in the right order. These should come from the train dataset!")
@@ -210,10 +210,10 @@ print(my_forest.feature_importances_)
 print(my_tree_two.score(features_two, target))
 print(my_forest.score(features_forest, target))
 ```
+
 *** =sct
 
 ```{python}
-
 test_function("print", 1, args=None,
               incorrect_msg = "You don't need to edit the given code. Instead leave it and use it as a hint for your solution")
 test_function("print", 2, args=None,
@@ -222,7 +222,6 @@ test_function("print", 3, args=None,
               incorrect_msg = "You don't need to edit the given code. Instead leave it and use it as a hint for your solution")
 test_function("print", 4, args=None,
               incorrect_msg = "Use the give code as a hint on how to complete the task. You solution shoudl look the same except with `my_forest` and an object of investigation!")
-
 ```
 
 --- type:MultipleChoiceExercise lang:python xp:50 skills:2 key:db79e9fe21
@@ -238,7 +237,6 @@ After this final exercise, you will be able to submit your random forest model t
 *** =pre_exercise_code
 
 ```{python}
-
 import pandas as pd
 import numpy as np
 import sklearn as sk
