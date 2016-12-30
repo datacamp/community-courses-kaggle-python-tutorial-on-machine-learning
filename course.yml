@@ -6,3 +6,4 @@ university           : DataCamp
 difficulty_level     : 2
 time_needed          : 1 hour
 programming_language : python
+from                 : "python-base-prod:8"
