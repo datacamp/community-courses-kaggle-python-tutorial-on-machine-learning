@@ -1,7 +1,6 @@
 ---
 title       : Predicting with Decision Trees
-description : After making your first predictions in the previous chapter, it's time to bring you to the next level. In chapter 2 you
-will be introduced to a fundamental concept in machine learning: decision trees.
+description : After making your first predictions in the previous chapter, it's time to bring you to the next level by using a fundamental concept in machine learning: decision trees.
 
 
 --- type:NormalExercise lang:python xp:100 skills:2 key:98be5c3225
